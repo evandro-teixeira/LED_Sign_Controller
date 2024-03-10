@@ -12,8 +12,16 @@
 #include <Arduino.h>
 #include "ledControl.hpp"
 
+#define STEP_LED  2
+
 uint8_t ledValue = 0;
 uint8_t ledState = 0;
+uint16_t Counter = 0;
+
+uint8_t rampApp(void);
+uint8_t rampAppUp(void); 
+uint8_t rampAppDown(void); 
+uint8_t blink(uint8_t limite);
 
 void setup() 
 {
@@ -24,41 +32,127 @@ void setup()
 
 void loop() 
 {
-  /*
-  if(ledValue == 0)
-  { 
-    ledValue = 1;
-    LEDApp.Set(LED_OnStatic, 0);
+  switch( ledState )
+  {
+    case 0:
+      ledValue = blink(100);
+    break;
+    case 1:
+      ledValue = rampApp();
+    break;
+    case 2:
+      ledValue = blink(50);
+    break;
+    case 3:
+      ledValue = rampAppUp();
+    break;
+    case 4:
+      ledValue = blink(200);
+    break;
+    case 5:
+      ledValue = rampAppDown();
+    break;
+    case 6:
+      ledValue = blink(10);
+    break;
   }
-  else
+
+  if(Counter++ > 1000)
   {
-    ledValue = 0;
-    LEDApp.Set(LED_Off, 0);
-  }*/
-  if(ledState == 0)
+    Counter = 0;
+    if(ledState++ >= 6) ledState = 0;
+  }
+
+  Serial.printf("State %d ledValue %d \n\r",ledState, ledValue);
+
+  LEDApp.Set(LED_OnVariable, ledValue);
+  LEDApp.Loop();
+
+  delay(20);
+}
+
+/**
+ * @brief 
+ * 
+ * @return uint8_t 
+ */
+uint8_t rampApp(void)
+{
+  static uint8_t Value = 0;
+  static uint8_t State = 0;
+
+  if(State == 0)
   {
-    if(ledValue <= 250)
+    if(Value <= 250)
     {
-      ledValue++;
+      Value += STEP_LED;
     }
     else 
     {
-      ledState = 1;
+      State = 1;
     }
   }
   else 
   {
-    if(ledValue > 1)
+    if(Value > STEP_LED)
     {
-      ledValue--;
+      if(Value <= STEP_LED)
+      {
+        Value = STEP_LED;
+      }
+      else
+      {
+        Value -= STEP_LED;
+      }
     }
     else 
     {
-      ledState = 0;
+      State = 0;
     }
   }
-  Serial.printf("State %d ledValue %d \n\r",ledState, ledValue);
-  LEDApp.Set(LED_OnVariable, ledValue);
-  LEDApp.Loop();
-  delay(50);
+  return Value;
+}
+
+/**
+ * @brief 
+ * 
+ * @return uint8_t 
+ */
+uint8_t rampAppUp(void)
+{
+  static uint8_t Value = 0;
+  if(Value++ >= 250) Value = 0;
+  return Value;
+}
+
+/**
+ * @brief 
+ * 
+ * @return uint8_t 
+ */
+uint8_t rampAppDown(void)
+{
+  static uint8_t Value = 250;
+  if(Value-- <= 1) Value = 250;
+  return Value;
+}
+
+/**
+ * @brief 
+ * 
+ * @param limite 
+ * @return uint8_t 
+ */
+uint8_t blink(uint8_t limite)
+{
+  static uint8_t counter = 0;
+  static uint8_t Value = 0;
+
+  if(counter++ >  limite)
+  {
+    counter = 0;
+    if(Value == 0) Value = 250;
+    else Value = 0;
+  }
+  return Value;
 }

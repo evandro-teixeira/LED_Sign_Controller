@@ -14,7 +14,7 @@
 
 #define LEDCONTROL_PIN_RELE    15
 #define LEDCONTROL_PIN_MOSFET  13
-#define LEDCONTROL_DEBUG       1
+#define LEDCONTROL_DEBUG       0
 
 /**
  * @brief 
