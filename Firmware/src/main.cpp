@@ -11,6 +11,7 @@
 
 #include <Arduino.h>
 #include "ledControl.hpp"
+#include "KeyManager.hpp"
 
 #define STEP_LED  2
 
@@ -27,11 +28,14 @@ void setup()
 {
   Serial.begin(115200);
   LEDApp.Init();
+  Key.Init();
   //LEDApp.Set(LED_OnVariable, ledValue);
 };
 
 void loop() 
 {
+  Key.Loop();
+
   switch( ledState )
   {
     case 0:
@@ -63,7 +67,7 @@ void loop()
     if(ledState++ >= 6) ledState = 0;
   }
 
-  Serial.printf("State %d ledValue %d \n\r",ledState, ledValue);
+  //Serial.printf("State %d ledValue %d \n\r",ledState, ledValue);
 
   LEDApp.Set(LED_OnVariable, ledValue);
   LEDApp.Loop();
