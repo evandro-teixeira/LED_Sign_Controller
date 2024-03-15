@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2024-03-09T20:15:04.688Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.0.4 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="N0ggkVvnpL_usz7i9OYs" version="24.0.4" type="device" pages="2">
+<mxfile host="Electron" modified="2024-03-10T18:04:54.659Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.0.4 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="w1dfTL_NHnxQ6ArEQAoJ" version="24.0.4" type="device" pages="2">
   <diagram name="Página-1" id="pLGN__kz6BKJUhdq8Tg8">
-    <mxGraphModel dx="733" dy="443" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="583" math="0" shadow="0">
+    <mxGraphModel dx="448" dy="465" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="583" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -112,7 +112,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="EZaES2KNtXbn9PIYyRio" name="Página-2">
-    <mxGraphModel dx="1035" dy="625" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="583" math="0" shadow="0">
+    <mxGraphModel dx="633" dy="656" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="583" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -133,16 +133,16 @@
         <mxCell id="i-xhMRC54x5TZHByGtTk-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="i-xhMRC54x5TZHByGtTk-2" target="i-xhMRC54x5TZHByGtTk-10">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="i-xhMRC54x5TZHByGtTk-2" value="APP Managed" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="i-xhMRC54x5TZHByGtTk-2" value="APP Manager" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="120" y="200" width="200" height="200" as="geometry" />
         </mxCell>
         <mxCell id="i-xhMRC54x5TZHByGtTk-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="i-xhMRC54x5TZHByGtTk-8" target="i-xhMRC54x5TZHByGtTk-2">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="i-xhMRC54x5TZHByGtTk-8" value="Key manager" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="i-xhMRC54x5TZHByGtTk-8" value="Key Manager" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="160" y="440" width="120" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="i-xhMRC54x5TZHByGtTk-10" value="APP Display" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="i-xhMRC54x5TZHByGtTk-10" value="Display Manager" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="120" y="40" width="200" height="80" as="geometry" />
         </mxCell>
       </root>
