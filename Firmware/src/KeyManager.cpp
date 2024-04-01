@@ -46,8 +46,7 @@ void KeyManager::Init(void)
     {
         pinMode( Pin[i] , INPUT_PULLUP );
         debounce[i] = 0;
-        valuePin[i] = 0;
-        //valuePinOld[i] = 0xFF;
+        valuePin[i] = 0xFF;
         valuePinCurrent[i] = 0;
     }
 }
@@ -58,7 +57,6 @@ void KeyManager::Init(void)
 void KeyManager::Loop(void)
 {
     uint8_t i = 0;
-    bool flagUpdate = false;
 
     for(i=0;i<PinMAX;i++)
     {
@@ -76,22 +74,25 @@ void KeyManager::Loop(void)
         else 
         {
             valuePin[i] = !newValue;
-            flagUpdate = true;
         }
 
 #if KEY_MANAGER_DEBUG
-        Serial.printf("valuePin[%d] %d newValue %d Pin %2d debounce %2d \n\r",i,valuePin[i],newValue, Pin[i], debounce[i]);
+        Serial.printf("\n\rvaluePin[%d] %d newValue %d Pin %2d debounce %2d ",i,valuePin[i],newValue, Pin[i], debounce[i]);
 #endif /* KEY_MANAGER_DEBUG*/
     }
 
-    if(flagUpdate == true)
+    // Add here Semaphore to protect access to variable valuePinCurrent[]
+    for(i=0;i<PinMAX;i++)
     {
-        // Add here Semaphore to protect access to variable valuePinCurrent[]
-        for(i=0;i<PinMAX;i++)
-        {
-            valuePinCurrent[i] = valuePin[i];
-        }
+        if(valuePinCurrent[i] != valuePin[i]) valuePinCurrent[i] = valuePin[i];
     }
+    
+#if KEY_MANAGER_DEBUG
+    for(i=0;i<PinMAX;i++)
+    {
+        Serial.printf("\n\rvaluePinCurrent[%d] %d",i,valuePinCurrent[i]);
+    }
+#endif /* KEY_MANAGER_DEBUG*/
 }
 
 /**

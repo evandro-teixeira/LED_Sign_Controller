@@ -12,30 +12,38 @@
 #include <Arduino.h>
 #include "ledControl.hpp"
 #include "KeyManager.hpp"
+#include "AppManager.hpp"
 
-#define STEP_LED  2
+
 
 uint8_t ledValue = 0;
 uint8_t ledState = 0;
 uint16_t Counter = 0;
-
+/*
 uint8_t rampApp(void);
 uint8_t rampAppUp(void); 
 uint8_t rampAppDown(void); 
 uint8_t blink(uint8_t limite);
+*/
 
 void setup() 
 {
+  delay(500);
+
   Serial.begin(115200);
   LEDApp.Init();
   Key.Init();
+  appMng.Init();
   //LEDApp.Set(LED_OnVariable, ledValue);
 };
 
 void loop() 
 {
   Key.Loop();
-
+  appMng.Loop();
+  LEDApp.Loop();
+  delay(1);
+  /*
   switch( ledState )
   {
     case 0:
@@ -68,14 +76,17 @@ void loop()
   }
 
   //Serial.printf("State %d ledValue %d \n\r",ledState, ledValue);
-
+  */
+  /* 
   LEDApp.Set(LED_OnVariable, ledValue);
   LEDApp.Loop();
 
   delay(20);
+  */
 }
 
-/**
+#if 0
+/** 
  * @brief 
  * 
  * @return uint8_t 
@@ -160,3 +171,4 @@ uint8_t blink(uint8_t limite)
   }
   return Value;
 }
+#endif 

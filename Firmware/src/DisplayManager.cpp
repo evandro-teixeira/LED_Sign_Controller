@@ -8,3 +8,37 @@
  * @copyright Copyright (c) 2024
  * 
  */
+#include "DisplayManager.hpp"
+
+
+DisplayManager DisplayMNG;
+
+/**
+ * @brief 
+ */
+DisplayManager::DisplayManager(/* args */)
+{
+}
+
+/**
+ * @brief Destroy the Display Manager:: Display Manager object
+ */
+DisplayManager::~DisplayManager()
+{
+}
+
+/**
+ * @brief 
+ */
+void DisplayManager::Init(void)
+{
+
+}
+
+/**
+ * @brief 
+ */
+void DisplayManager::Loop(void)
+{
+
+}

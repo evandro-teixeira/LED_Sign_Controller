@@ -11,12 +11,12 @@
 
 #include <Arduino.h>
 
-#define KEY_MANAGER_PIN_B1  2
-#define KEY_MANAGER_PIN_B2  0
-#define KEY_MANAGER_PIN_B3  14
-#define KEY_MANAGER_PIN_B4  12
-#define KEY_MANAGER_DEBOUNCE    10
-#define KEY_MANAGER_DEBUG   1
+#define KEY_MANAGER_PIN_B1      2
+#define KEY_MANAGER_PIN_B2      0
+#define KEY_MANAGER_PIN_B3      14
+#define KEY_MANAGER_PIN_B4      12
+#define KEY_MANAGER_DEBOUNCE    5
+#define KEY_MANAGER_DEBUG       1
 
 /**
  * @brief 

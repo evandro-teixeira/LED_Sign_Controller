@@ -8,3 +8,17 @@
  * @copyright Copyright (c) 2024
  * 
  */
+#include <Arduino.h>
+
+class DisplayManager
+{
+private:
+    /* data */
+public:
+    DisplayManager(/* args */);
+    ~DisplayManager();
+    void Init(void);
+    void Loop(void);
+};
+
+extern DisplayManager DisplayMNG;
